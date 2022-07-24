@@ -20,10 +20,8 @@ import { IndexScreen } from "@src/routing-app/screen-index/index-screen";
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <div className="root">
-      <CssBaseline />
-      <IndexScreen />
-    </div>
-  </React.StrictMode>
+  <div className="root">
+    <CssBaseline />
+    <IndexScreen />
+  </div>
 )

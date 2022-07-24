@@ -6,8 +6,9 @@ import { TextField, Grid, Card,} from "@mui/material"
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 import "./index-screen.scss"
-import { searchTree } from  "@helpers/search"
-import { dataset01 } from  "@globals/global-data/dataset-01"
+// import { searchTree } from  "@helpers/search"
+import { dataArrayFirst } from  "@globals/global-data/dataset-01"
+import { dataObjectFirst } from  "@globals/global-data/dataset-02"
 
 
 
@@ -16,27 +17,58 @@ import { dataset01 } from  "@globals/global-data/dataset-01"
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 export const IndexScreen = () => {
   const [search, setSearch] = React.useState<string>("")
-  const [filteredObjData, setFilterObjData] = React.useState(null)
-  const [originalObjData, setOriginalObjData] = React.useState(dataset01)
+  const [filteredData, setFilterData] = React.useState(null)
+  //
+  // React.useEffect(() => {
+  //
+  // }, [search])
 
+  const renderData: any = (tree: any, tabDepth?: number, key?: string, index?: number) => {
+    let indent = tabDepth ? tabDepth + 1 : 1
+    console.log(indent)
+    switch (Object.prototype.toString.call(tree)) {
+      case "[object Object]": return (
+        <div key={index}>
+          {Object.keys(tree).map(function(key, index) {
+            return renderData(tree[key], indent, key, index)
+          })}
+        </div>
+      )
 
-  React.useEffect(() => {
+      case "[object Array]": return (
+        <div key={index}>
+          {tree.map((branch: any, index: number) => {
+            return renderData(branch, indent, null, index)
+          })}
+        </div>
+      )
 
-  }, [search])
+      default: return (
+        <div key={index} style={{ marginLeft: `${indent > 1 ? `${(indent-2)*10}px`: "0" }` }}>
+          {`{${key}: ${tree} }`}
+        </div>
+      )
+
+    }
+  }
+
 
   return (
     <div style={{ fontSize: 20 }}>
       <Grid container style={{ position: "fixed", top: 17, left: 16, backgroundColor: "transparent", borderBottom: "solid black 1px"}}>
-        <TextField id="outlined-basic" label="Search" variant="outlined" style={{ marginBottom: 16}} onChange={() => searchTree(originalObjData, search)}/>
+        {/*<TextField id="outlined-basic" label="Search" variant="outlined" style={{ marginBottom: 16}} onChange={() => searchTree(originalData,0, search)}/>*/}
       </Grid>
 
       <Grid container style={{ marginTop: 90, minHeight: " calc(100vh - 100px)" }}>
         <Grid item xs={6} style={{ padding: 16, borderRight: "solid black 1px"}}>
-          <header style={{fontWeight: "bolder", fontSize: 24, color: "green"}}>Original Data</header>
-
+          <>
+            <header style={{fontWeight: "bolder", fontSize: 24, color: "green"}}>Array First Data</header>
+            {/*{renderData(dataArrayFirst)}*/}
+          </>
         </Grid>
         <Grid item xs={6} style={{ padding: 16 }}>
-          <header style={{fontWeight: "bolder", fontSize: 24, color: "red"}}>Filtered Data</header>
+          <header style={{fontWeight: "bolder", fontSize: 24, color: "red"}}>Object First</header>
+          {renderData(dataObjectFirst)}
         </Grid>
       </Grid>
     </div>

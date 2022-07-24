@@ -1,15 +1,15 @@
-export const dataset01 = [
+export const dataArrayFirst = [
   {
     category: "Sandwich",
     menu: [
       {
         item: "blt",
         cost: 9.99,
-        ingredients: [
-          "bacon",
-          "lettuce",
-          "tomato"
-        ]
+        // ingredients: [
+        //   "bacon",
+        //   "lettuce",
+        //   "tomato"
+        // ]
       }
     ]
   }

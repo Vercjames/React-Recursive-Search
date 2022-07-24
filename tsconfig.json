@@ -28,8 +28,8 @@
     "paths": {                                           /* Specify a set of entries that re-map imports to additional lookup locations. */
       "@src/*": ["client-apps/*"],
       "@comps/*": ["client-apps/comps/*"],
-      "@helpers/*": ["client-apps/helpers/*"],
       "@globals/*": ["client-apps/globals/*"],
+      "@module/*": ["client-module/*"],
       "@assets/*": ["client-assets/*"]
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
@@ -96,9 +96,13 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
   "include": [
+    "client-modules"
+  ],
+  "exclude": [
     "client-apps",
     "client-assets",
-    "client-configs",
-    "vite.config.ts"
-  ]
+    "vite.config.ts",
+    "node_modules",
+    "dist",
+  ],
 }
