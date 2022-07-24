@@ -26,8 +26,10 @@ export default defineConfig(({ command, mode }: any) => {
       alias: {
         "@": path.resolve(__dirname, "./client-apps"),
         "@src": path.resolve(__dirname, "./client-apps"),
-        "@assets": path.resolve(__dirname, "./client-assets"),
+        "@comps": path.resolve(__dirname, "./client-apps/comps"),
+        "@helpers": path.resolve(__dirname, "./client-apps/helpers"),
         "@globals": path.resolve(__dirname, "./client-apps/globals"),
+        "@assets": path.resolve(__dirname, "./client-assets"),
       },
     },
     define: {
