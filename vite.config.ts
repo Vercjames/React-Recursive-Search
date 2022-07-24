@@ -27,6 +27,7 @@ export default defineConfig(({ command, mode }: any) => {
         "@": path.resolve(__dirname, "./client-apps"),
         "@src": path.resolve(__dirname, "./client-apps"),
         "@assets": path.resolve(__dirname, "./client-assets"),
+        "@globals": path.resolve(__dirname, "./client-apps/globals"),
       },
     },
     define: {

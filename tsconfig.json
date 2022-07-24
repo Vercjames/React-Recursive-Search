@@ -27,15 +27,8 @@
     "baseUrl": "./",                                     /* Specify the base directory to resolve non-relative module names. */
     "paths": {                                           /* Specify a set of entries that re-map imports to additional lookup locations. */
       "@src/*": ["client-apps/*"],
-      "@comps/*": ["client-apps/comps/*"],
-      "@helpers/*": ["client-apps/helpers/*"],
-      "@globals/*": ["client-apps/globals/*"],
-      "@state/*": ["client-apps/state-tree/*"],
-      "@mobx/*": ["client-apps/state-tree/mobx/"],
-      "@colors": ["client-apps/globals/global-styles/colors.tsx"],
-      "@axios": ["client-apps/globals/global-axios/axios-instance.tsx"],
-      "@MSTContext": ["client-apps/state-tree/mobx/mobx-context.tsx"],
       "@assets/*": ["client-assets/*"],
+      "@globals/*": ["client-apps/globals/*"],
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
