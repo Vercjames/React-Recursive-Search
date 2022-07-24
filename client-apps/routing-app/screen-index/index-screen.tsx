@@ -6,7 +6,7 @@ import { TextField, Grid, Card,} from "@mui/material"
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 import "./index-screen.scss"
-// import { searchTree } from  "@helpers/search"
+import { searchTree } from  "@modules/index"
 import { dataArrayFirst } from  "@globals/global-data/dataset-01"
 import { dataObjectFirst } from  "@globals/global-data/dataset-02"
 
@@ -18,14 +18,19 @@ import { dataObjectFirst } from  "@globals/global-data/dataset-02"
 export const IndexScreen = () => {
   const [search, setSearch] = React.useState<string>("")
   const [filteredData, setFilterData] = React.useState(null)
+
   //
-  // React.useEffect(() => {
-  //
-  // }, [search])
+  React.useEffect(() => {
+    searchTree(dataArrayFirst, search)
+    searchTree(dataObjectFirst, search)
+  }, [search])
+
+  const handleChange = (event: any) => {
+    setSearch(event.target.value?.toString().toLowerCase())
+  };
 
   const renderData: any = (tree: any, tabDepth?: number, key?: string, index?: number) => {
     let indent = tabDepth ? tabDepth + 1 : 1
-    console.log(indent)
     switch (Object.prototype.toString.call(tree)) {
       case "[object Object]": return (
         <div key={index}>
@@ -56,18 +61,18 @@ export const IndexScreen = () => {
   return (
     <div style={{ fontSize: 20 }}>
       <Grid container style={{ position: "fixed", top: 17, left: 16, backgroundColor: "transparent", borderBottom: "solid black 1px"}}>
-        {/*<TextField id="outlined-basic" label="Search" variant="outlined" style={{ marginBottom: 16}} onChange={() => searchTree(originalData,0, search)}/>*/}
+        <TextField id="outlined-basic" label="Search" variant="outlined" style={{ marginBottom: 16}}  onChange={(e) => handleChange(e)}/>
       </Grid>
 
       <Grid container style={{ marginTop: 90, minHeight: " calc(100vh - 100px)" }}>
         <Grid item xs={6} style={{ padding: 16, borderRight: "solid black 1px"}}>
           <>
             <header style={{fontWeight: "bolder", fontSize: 24, color: "green"}}>Array First Data</header>
-            {/*{renderData(dataArrayFirst)}*/}
+            {renderData(dataArrayFirst)}
           </>
         </Grid>
         <Grid item xs={6} style={{ padding: 16 }}>
-          <header style={{fontWeight: "bolder", fontSize: 24, color: "red"}}>Object First</header>
+          <header style={{fontWeight: "bolder", fontSize: 24, color: "green"}}>Object First</header>
           {renderData(dataObjectFirst)}
         </Grid>
       </Grid>

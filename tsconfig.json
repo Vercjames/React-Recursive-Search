@@ -29,7 +29,7 @@
       "@src/*": ["client-apps/*"],
       "@comps/*": ["client-apps/comps/*"],
       "@globals/*": ["client-apps/globals/*"],
-      "@module/*": ["client-module/*"],
+      "@modules/*": ["client-modules/*"],
       "@assets/*": ["client-assets/*"]
     },
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
