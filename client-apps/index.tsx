@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom/client'
 // Client Application || Global Styles
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+import { CssBaseline } from '@mui/material';
+import '@globals/global-styles/reset.scss'
 import '@globals/global-styles/index.scss'
 
 
@@ -19,6 +21,9 @@ import { IndexScreen } from "@src/routing-app/screen-index/index-screen";
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <IndexScreen />
+    <div className="root">
+      <CssBaseline />
+      <IndexScreen />
+    </div>
   </React.StrictMode>
 )

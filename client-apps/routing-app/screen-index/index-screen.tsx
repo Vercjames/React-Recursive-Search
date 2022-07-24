@@ -1,5 +1,5 @@
 import React from "react"
-import { TextField, Grid } from "@mui/material"
+import { TextField, Grid, Card,} from "@mui/material"
 
 
 // Application Screen || Define Imports
@@ -20,23 +20,23 @@ export const IndexScreen = () => {
   const [originalObjData, setOriginalObjData] = React.useState(dataset01)
 
 
-
   React.useEffect(() => {
 
   }, [search])
 
   return (
     <div style={{ fontSize: 20 }}>
-      <Grid container style={{ position: "fixed", top: 16, left: 16, borderBottom: "solid black 1px"}}>
-        <TextField id="outlined-basic" label="Search" variant="outlined" style={{ marginBottom: 7}} onChange={() => searchTree(originalObjData, search)}/>
+      <Grid container style={{ position: "fixed", top: 17, left: 16, backgroundColor: "transparent", borderBottom: "solid black 1px"}}>
+        <TextField id="outlined-basic" label="Search" variant="outlined" style={{ marginBottom: 16}} onChange={() => searchTree(originalObjData, search)}/>
       </Grid>
 
-      <Grid container style={{ marginTop: 80, minHeight: " calc(100vh - 96px)" }}>
+      <Grid container style={{ marginTop: 90, minHeight: " calc(100vh - 100px)" }}>
         <Grid item xs={6} style={{ padding: 16, borderRight: "solid black 1px"}}>
-          xs=4
+          <header style={{fontWeight: "bolder", fontSize: 24, color: "green"}}>Original Data</header>
+
         </Grid>
         <Grid item xs={6} style={{ padding: 16 }}>
-          xs=4
+          <header style={{fontWeight: "bolder", fontSize: 24, color: "red"}}>Filtered Data</header>
         </Grid>
       </Grid>
     </div>
