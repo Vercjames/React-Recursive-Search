@@ -1,16 +1,27 @@
 {
   "name": "react-recursive-search",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "https://github.com/vercjames",
+  "description": "A react app demonstrating complex recursive search to handle deep and nested values inside objects of objects and arrays.",
+  "repository": "https://github.com/Vercjames/React-Recursive-Search",
+  "homepage": "https://github.com/Vercjames/React-Recursive-Search",
+  "main": "index.html",
+  "private": false,
   "scripts": {
-    "dev": "vite",
+    "start": "vite --host --port 8000",
     "build": "tsc && vite build",
+    "lint": "eslint \"./client-apps/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint:fix": "eslint --fix \"./client-apps/**/*.{js,jsx,ts,tsx,json}\"",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.9.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sass": "^1.54.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
